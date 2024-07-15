@@ -1,0 +1,22 @@
+.button-container {
+  display: flex;
+  gap: 14px;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.title-wrapper{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}

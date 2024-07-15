@@ -1,0 +1,25 @@
+<div *ngFor=" let todo of todos | async" class="container">
+    <div>
+        <h3>{{todo.title}}</h3>
+        <div class="title-wrapper">
+            <app-input (changeTitleProps)="changeTitle($event)"/>
+            <app-button [titleProps]="'Add'" ></app-button>
+        </div>
+        <ul class="list">
+            <li>
+                <app-checkbox (check)="onCheck($event)"/>
+                <span>HTML&CSS</span></li>
+            <li>
+                <app-checkbox/>
+                <span>JS</span></li>
+            <li>
+                <app-checkbox/>
+                <span>React</span></li>
+        </ul>
+        <div class="button-container">
+            <app-button [titleProps]="'All'" (onClick)="onClickButton()"></app-button>
+            <app-button [titleProps]="'Active'" (onClick)="onClickButton()"></app-button>
+            <app-button [titleProps]="'Completed'" (onClick)="onClickButton()"></app-button>
+        </div>
+    </div>
+</div>
