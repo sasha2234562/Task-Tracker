@@ -1,0 +1,19 @@
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-content {
+  display: flex;
+  gap: 12px;
+}
+
+.task-text {
+  font-size: 18px;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

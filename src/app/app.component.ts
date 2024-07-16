@@ -7,6 +7,7 @@ import {TodoService} from "./components/todos/todo/todo.service";
 import {HttpClientModule} from "@angular/common/http";
 import {InputComponent} from "./components/input/input.component";
 import {AppService} from "./components/app.service";
+import {TasksService} from "./components/todos/tasks/tasks/tasks.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import {AppService} from "./components/app.service";
   imports: [RouterOutlet, ButtonComponent, CheckboxComponent, HttpClientModule, TodoComponent, InputComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [TodoService, AppService]
+  providers: [TodoService, AppService, TasksService]
 })
 export class AppComponent {
   constructor(private appService: AppService) {

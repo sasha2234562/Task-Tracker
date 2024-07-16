@@ -5,6 +5,7 @@ import {Res, TodoService} from "./todo.service";
 import {Observable} from "rxjs";
 import {AsyncPipe, NgForOf, NgOptimizedImage} from "@angular/common";
 import {InputComponent} from "../../input/input.component";
+import {TasksComponent} from "../tasks/tasks/tasks.component";
 
 @Component({
   selector: 'app-todo',
@@ -15,7 +16,8 @@ import {InputComponent} from "../../input/input.component";
     NgForOf,
     AsyncPipe,
     InputComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    TasksComponent
   ],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
@@ -37,19 +39,15 @@ export class TodoComponent implements OnInit {
     this.todoServise.getTodo()
   }
 
-  // @Input()isChecked : boolean = false
   @Output() check = new EventEmitter<boolean>();
 
-  onCheck($event: boolean) {
-    console.log('Check $event', $event)
-  }
 
-  onAddTodo() {
-    console.log(this.titleNewTodo)
-    this.todoServise.addTodo(this.titleNewTodo)
+  deleteTodo(id: string) {
+   this.todoServise.deleteTodo(id)
   }
 
   onClickButton() {
     console.log('Click')
   }
+
 }

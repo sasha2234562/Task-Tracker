@@ -11,11 +11,13 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './checkbox.component.scss'
 })
 export class CheckboxComponent {
-constructor() {}
+  constructor() {
+  }
+
   isChecked = false
 
-  // @Input()isChecked : boolean = false
   @Output() check = new EventEmitter<boolean>();
+
   onChange(isChecked: boolean) {
     this.isChecked = isChecked;
     this.check.emit(isChecked);

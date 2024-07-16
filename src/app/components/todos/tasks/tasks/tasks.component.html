@@ -1,0 +1,8 @@
+<div *ngFor="let task of tasks | async" class="tasks-container">
+  <div class="task-wrapper">
+  <span class="task-content">
+    <app-checkbox></app-checkbox>
+    <strong class="task-text">{{task}}</strong></span>
+    <app-button [titleProps]="'delete'"></app-button>
+  </div>
+</div>
