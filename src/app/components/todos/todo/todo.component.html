@@ -4,10 +4,6 @@
       <h3>{{todo.title}}</h3>
       <app-button (onClick)="deleteTodo(todo.id)" [titleProps]="'delete'"/>
     </div>
-    <div class="title-wrapper">
-      <app-input (changeTitleProps)="changeTitle($event)"/>
-      <app-button [titleProps]="'Add'"></app-button>
-    </div>
     <ul class="list">
       <app-tasks [todoId]="todo.id"></app-tasks>
     </ul>

@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CheckboxComponent} from "../../../checkbox/checkbox.component";
 import {ButtonComponent} from "../../../button/button.component";
 import {TasksService, Task} from "./tasks.service";
 import {Observable} from "rxjs";
 import {AsyncPipe, NgForOf} from "@angular/common";
+import {InputComponent} from "../../../input/input.component";
 
 @Component({
   selector: 'app-tasks',
@@ -12,7 +13,8 @@ import {AsyncPipe, NgForOf} from "@angular/common";
     CheckboxComponent,
     ButtonComponent,
     NgForOf,
-    AsyncPipe
+    AsyncPipe,
+    InputComponent
   ],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
@@ -20,11 +22,12 @@ import {AsyncPipe, NgForOf} from "@angular/common";
 export class TasksComponent implements OnInit {
   constructor(private taskService: TasksService) {
   }
-  tasks!: Observable<Task[]>
 
+  tasks!: Observable<Task[]>
+  titleTask = ''
 
   @Input() todoId: string = ''
-
+  @Output() createTask = new EventEmitter<boolean>();
 
   ngOnInit(): void {
     this.getTask()
@@ -33,5 +36,17 @@ export class TasksComponent implements OnInit {
 
   getTask() {
     this.taskService.getTask(this.todoId)
+  }
+
+  deleteTask() {
+
+  }
+
+  changeTitle(event: string) {
+    this.titleTask = event
+  }
+
+  addTask() {
+    this.taskService.addTask({todolistId: this.todoId, title: this.titleTask})
   }
 }

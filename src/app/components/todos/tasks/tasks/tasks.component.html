@@ -1,8 +1,12 @@
+<div class="title-wrapper">
+  <app-input (changeTitleProps)="changeTitle($event)"/>
+  <app-button [titleProps]="'Add'" (onClick)="addTask()"></app-button>
+</div>
 <div *ngFor="let task of tasks | async" class="tasks-container">
   <div class="task-wrapper">
   <span class="task-content">
     <app-checkbox></app-checkbox>
-    <strong class="task-text">{{task}}</strong></span>
-    <app-button [titleProps]="'delete'"></app-button>
+    <strong class="task-text">{{task.title}}</strong></span>
+    <app-button [titleProps]="'delete'" (onClick)="deleteTask()"></app-button>
   </div>
 </div>

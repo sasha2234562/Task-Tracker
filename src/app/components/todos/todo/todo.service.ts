@@ -32,8 +32,8 @@ export class TodoService {
 
   httpOptions = {
     headers: {
-      'api-key': 'bc4a865c-4106-4255-904e-7a0e58e814e6',
-      'Authorization': 'dec85456-73ff-40f0-8666-e20b33676d38'
+      'api-key': '50659ead-1a5f-4716-a050-11b2b876ac95',
+      'Authorization': '3d31f7f8-0cd0-43b5-b75e-cd36b5579564'
     },
     withCredentials: true
   }
