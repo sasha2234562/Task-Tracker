@@ -30,8 +30,6 @@ export class TasksComponent implements OnInit {
   @Output() createTask = new EventEmitter<boolean>();
 
   ngOnInit(): void {
-    console.log(this.todoId)
-    console.log(this.taskService.tasks$)
     this.getTask()
     // this.tasks = this.taskService.tasks$
   }
