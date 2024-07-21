@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, catchError, EMPTY} from "rxjs";
+import {BehaviorSubject, catchError, EMPTY, map} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 export interface Task {
@@ -44,7 +44,13 @@ export class TasksService {
   }
 
   getTask(todolistId: string) {
-    this.http.get<GetTasksResponse>(`${this.url}/${todolistId}/tasks`, this.httpOptions).pipe(
+    return this.http.get<GetTasksResponse>(`${this.url}/${todolistId}/tasks`, this.httpOptions).pipe(
+      map(t => t.items)
+    )
+  }
+
+  addTask({todolistId, title}: { todolistId: string, title: string }) {
+    this.http.post<GetTasksResponse>(`${this.url}/${todolistId}/tasks`, {title}, this.httpOptions).pipe(
       catchError((err: HttpErrorResponse) => {
         console.log(err.message)
         return EMPTY
@@ -54,8 +60,8 @@ export class TasksService {
     })
   }
 
-  addTask({todolistId, title}: { todolistId: string, title: string }) {
-    this.http.post<GetTasksResponse>(`${this.url}/${todolistId}/tasks`, {title}, this.httpOptions).pipe(
+  deleteTask({todolistId, taskId}: { todolistId: string, taskId: string }) {
+    this.http.delete<GetTasksResponse>(`${this.url}/${todolistId}/tasks/${taskId}`, this.httpOptions).pipe(
       catchError((err: HttpErrorResponse) => {
         console.log(err.message)
         return EMPTY

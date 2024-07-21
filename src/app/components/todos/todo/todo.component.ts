@@ -28,15 +28,10 @@ export class TodoComponent implements OnInit {
 
   // svgUrl = '../../../assets/svg/remove.svg';
   todos!: Observable<Res[]>
-  titleNewTodo = ''
-
-  changeTitle(event: string) {
-    this.titleNewTodo = event
-  }
 
   ngOnInit() {
-    this.todos = this.todoServise.todos$
     this.todoServise.getTodo()
+    this.todos = this.todoServise.todos$
   }
 
   @Output() check = new EventEmitter<boolean>();

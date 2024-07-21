@@ -30,16 +30,18 @@ export class TasksComponent implements OnInit {
   @Output() createTask = new EventEmitter<boolean>();
 
   ngOnInit(): void {
+    console.log(this.todoId)
+    console.log(this.taskService.tasks$)
     this.getTask()
-    this.tasks = this.taskService.tasks$
+    // this.tasks = this.taskService.tasks$
   }
 
   getTask() {
-    this.taskService.getTask(this.todoId)
+   this.tasks =  this.taskService.getTask(this.todoId)
   }
 
-  deleteTask() {
-
+  deleteTask(taskId: string) {
+    this.taskService.deleteTask({todolistId: this.todoId, taskId})
   }
 
   changeTitle(event: string) {

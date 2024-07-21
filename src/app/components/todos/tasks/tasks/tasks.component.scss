@@ -15,10 +15,15 @@
 .tasks-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 26px;
 }
 .title-wrapper{
   display: flex;
   gap: 16px;
   align-items: center;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
